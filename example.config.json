@@ -1,0 +1,7 @@
+{
+    "v2_api": {
+        "client_id": "<your-client-id>",
+        "client_secret": "<your-client-secret>"
+    },
+    "songs_path": "<your-path>"
+}
