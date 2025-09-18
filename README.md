@@ -1,1 +1,1 @@
-# osu-ranked-downloder
+# osu-map-downloader
