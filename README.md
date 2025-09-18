@@ -22,11 +22,11 @@
 
 复制osu_session=后面的值
 
-将<your-osu-session-cookie-value>替换为你复制的值
+将\<your-osu-session-cookie-value\>替换为你复制的值
 
 #### 设置下载文件存放路径
 
-将你希望的文件存放路径替换掉配置文件模板中的<your-path>
+将你希望的文件存放路径替换掉配置文件模板中的\<your-path\>
 
 ### 运行程序
 
