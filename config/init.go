@@ -7,23 +7,22 @@ import (
 	"os"
 )
 
-type apiV2 struct {
-	ClientId     string `json:"client_id"`
-	ClientSecret string `json:"client_secret"`
-}
-
 type conf struct {
-	V2Api     apiV2  `json:"v2_api"`
-	SongsPath string `json:"songs_path"`
+	SongsPath  string `json:"songs_path"`
+	OsuSession string `json:"osu_session"`
 }
 
 var (
-	V2Api     apiV2
-	SongsPath string
+	SongsPath  string
+	Method     *string
+	MapType    *string
+	OsuSession string
 )
 
 func init() {
 	configPath := flag.String("c", "config.json", "config file path")
+	Method = flag.String("m", "none", "program running method")
+	MapType = flag.String("t", "ranked", "program running type")
 	flag.Parse()
 	configJson, err := os.ReadFile(*configPath)
 	if err != nil {
@@ -38,6 +37,11 @@ func init() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	V2Api = config.V2Api
+	dirInfo, err := os.ReadDir(config.SongsPath)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(dirInfo[0].Name())
 	SongsPath = config.SongsPath
+	OsuSession = config.OsuSession
 }

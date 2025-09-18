@@ -35,3 +35,4 @@ main.exe
 .vscode/
 
 config.json
+data/

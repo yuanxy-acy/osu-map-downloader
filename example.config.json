@@ -1,7 +1,4 @@
 {
-    "v2_api": {
-        "client_id": "<your-client-id>",
-        "client_secret": "<your-client-secret>"
-    },
-    "songs_path": "<your-path>"
+    "songs_path": "<your-path>",
+    "osu_session": "<your-osu-session-cookie-value>"
 }
