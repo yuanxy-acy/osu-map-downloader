@@ -26,6 +26,26 @@ func init() {
 	flag.Parse()
 	configJson, err := os.ReadFile(*configPath)
 	if err != nil {
+		if err.Error() == "open config.json: The system cannot find the file specified." {
+			file, err := os.Create(*configPath)
+			if err != nil {
+				fmt.Println("create config.json file failed")
+				fmt.Println(err)
+				return
+			}
+			defer func(file *os.File) {
+				err = file.Close()
+				if err != nil {
+
+				}
+			}(file)
+			_, err = file.WriteString("{\n    \"songs_path\": \"<your-path>\",\n    \"osu_session\": \"<your-osu-session-cookie-value>\"\n}")
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println("已创建默认配置文件")
+			os.Exit(0)
+		}
 		fmt.Println("读取配置文件失败")
 		fmt.Println(err)
 		os.Exit(1)
