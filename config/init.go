@@ -63,5 +63,8 @@ func init() {
 	}
 	fmt.Println(dirInfo[0].Name())
 	SongsPath = config.SongsPath
+	if SongsPath[len(SongsPath)-1] != '\\' {
+		SongsPath = SongsPath + "\\"
+	}
 	OsuSession = config.OsuSession
 }

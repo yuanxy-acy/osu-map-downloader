@@ -1,6 +1,5 @@
 # osu-map-downloader
 
-------
 ## 使用方法
 
 ### 设置配置文件
@@ -51,5 +50,3 @@
 ````[shell]
 ./downloader.exe -m download
 ````
-
---------

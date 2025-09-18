@@ -3,7 +3,10 @@ package core
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"osu-map-downloader/config"
 	"osu-map-downloader/osu"
+	"strings"
 )
 
 func FindRankedMaps() {
@@ -36,6 +39,14 @@ func DownloadRankedMaps() {
 	if err != nil {
 		fmt.Println(err)
 		return
+	}
+	files, err := os.ReadDir(config.SongsPath)
+	if err != nil {
+		fmt.Println(err)
+	}
+	for _, file := range files {
+		sid := strings.Split(file.Name(), " ")[0]
+		delete(mapData, sid)
 	}
 	for sid, info := range mapData {
 		fmt.Println("downloading  ", info["ranked_date"], "  ", fmt.Sprintf("%-15s", info["title"]))
